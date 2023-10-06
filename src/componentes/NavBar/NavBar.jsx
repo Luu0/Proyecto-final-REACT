@@ -29,10 +29,12 @@ const NavBar = () => {
           </ul>
         </div>
 
+        <NavLink style={{ textDecoration: "none" }} to={"/cart"}>
         <div className="d-flex">
           <CartWidget/>
           <p className="text-light">4</p>
         </div>
+        </NavLink>
       
       </div>
     </nav>

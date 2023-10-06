@@ -1,9 +1,16 @@
+import { Link } from "react-router-dom";
 import ItemCount from "../Counter/ItemCount"
+import { useCartContext } from "../context/CartContext";
+import { useState } from "react";
 
 const ItemDetail = ({product})=>{
+  const [isInCount,setIsInCount]=useState (true)
+  const {agregarCarrito} = useCartContext()
 
   const onAdd = (count) => {
     console.log('productos seleccionados :', count);
+    agregarCarrito({...product,count })
+    setIsInCount(false)
   }
 
   return(
@@ -20,7 +27,24 @@ const ItemDetail = ({product})=>{
         </div>
       </div>
 
+      {isInCount ?
+      
+        <Link to = {"/cart"}>    
+          <button className="btn btn-outline-warning" >Ir al Carrito</button>
+        </Link>
+      :
+        <>
+          <Link to = {"/"}>    
+            <button className="btn btn-outline-success" >Seguir comprando</button>
+          </Link>
+        </>
+      }
+
       <ItemCount initial = {1} stock={product.stock} onAdd={onAdd}/>
+
+      <Link>
+      
+      </Link>  
     </div>
   )
 }
