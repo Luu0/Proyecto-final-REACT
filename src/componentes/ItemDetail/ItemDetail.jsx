@@ -41,10 +41,6 @@ const ItemDetail = ({product})=>{
       }
 
       <ItemCount initial = {1} stock={product.stock} onAdd={onAdd}/>
-
-      <Link>
-      
-      </Link>  
     </div>
   )
 }

@@ -24,7 +24,7 @@ const ItemCount = ({initial, stock, onAdd})=>{
         <strong>{counter}</strong>
       </label>
       <button className="btn btn-outline-dark" onClick={handleSubstract}>-1</button>
-      <button className="btn btn-outline-dark" onClick={handleOnAdd}>Agragar al carrito</button>
+      <button className="btn btn-outline-dark" onClick={handleOnAdd}>Agregar al carrito</button>
     </div>
 
 )}

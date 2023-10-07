@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import { mFetch } from "../utils/mockfetch"
 import { useParams } from "react-router-dom"
+import {collection, doc, getDoc, getDocs, getFirestore} from "firebase/firestore"
+
 
 
 const ItemDetailContainer = () => {
@@ -10,11 +12,12 @@ const ItemDetailContainer = () => {
     const { pid } = useParams()
    
     useEffect(()=>{
-        // llamada a la api
-        mFetch(Number(pid))
-        .then(resp => setProduct(resp))
-        .catch(err=> console.log(err))
-    },[])
+        const db = getFirestore()
+        const querydoc  = doc(db,"Items",pid)
+        getDoc(querydoc)
+        .then(resp => ({id:resp.id, ...resp.data()}) )
+        .then(resp=>setProduct(resp))
+      },[])
     return (
         <div className="d-flex justify-content-center">
             <ItemDetail product={product} />
