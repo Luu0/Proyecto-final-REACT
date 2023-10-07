@@ -17,20 +17,14 @@ const CartContainer = () => {
   const handleAddOrder = async (evt)=>{
     evt.preventDefault()
 
-    if(!dataForm.name || !dataForm.phone || !dataForm.email || dataForm.email2){
-      alert("NO SE PUDEN DEJAR LOS CAMPOS EN BLANCO")
-      return;
-    }
-    else if(!dataForm.email !== dataForm.email2){
-      alert("LOS MAILS TIENEN QUE CONCIDIR")
-      return;
-    }
-
-
-
-
-
-
+    // if(!dataForm.name || !dataForm.phone || !dataForm.email || dataForm.email2){
+    //   alert("NO SE PUDEN DEJAR LOS CAMPOS EN BLANCO")
+    //   return;
+    // }
+    // else if(!dataForm.email !== dataForm.email2){
+    //   alert("LOS MAILS TIENEN QUE CONCIDIR")
+    //   return;
+    // }
 
     const order = {}
     order.buyer = dataForm
