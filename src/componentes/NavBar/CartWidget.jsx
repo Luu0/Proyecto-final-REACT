@@ -2,10 +2,10 @@ import carrito from "../../assets/carrito.png"
 import { useCartContext } from "../context/CartContext"
 
 const CartWidget = ()=>{
-  // const {cantidadTotal} = useCartContext() 
+  const {cantidadTotal} = useCartContext() 
   return(
     <div>
-    {/* {cantidadTotal()} */}
+    {cantidadTotal()}
     <button type="button" className="btn btn-dark"><img src={carrito}></img></button>
   </div>
   )
