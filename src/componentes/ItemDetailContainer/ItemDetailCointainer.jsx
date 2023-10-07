@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail"
-import { mFetch } from "../utils/mockfetch"
 import { useParams } from "react-router-dom"
 import {collection, doc, getDoc, getDocs, getFirestore} from "firebase/firestore"
-
-
 
 const ItemDetailContainer = () => {
     // api manejo de estados etc
