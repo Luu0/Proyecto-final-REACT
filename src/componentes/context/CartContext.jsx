@@ -9,23 +9,22 @@ export const CartContextProvider = ({ children }) => {
     // estados y funciones del contexto
     const [cartList, setCartList] = useState([])
 
-    const isProduct = (id) => cartList.findIndex(prod => prod.id === id)
+    const index = (id) => cartList.findIndex(prod => prod.id === id)
 
-    const agregarCarrito = (newProduct)=>{
-        // lógica  para evitar duplicado
-        const index = isProduct(newProduct.id) 
-
-        if (index !== -1) {
-            cartList[index].quantity += newProduct.quantity 
-            setCartList([...cartList])  
+    const agregarCarrito = (newProduct) => {
+        const existingProductIndex = index(newProduct.id)
+        if (existingProductIndex !== -1) {
+            // Si el producto ya existe, actualiza la cantidad en lugar de añadirlo nuevamente
+            const updatedCart = [...cartList];
+            const existingProduct = updatedCart[existingProductIndex];
+            existingProduct.count += newProduct.count;
+            setCartList(updatedCart);
         } else {
-            setCartList([
-                ...cartList,
-                newProduct
-            ])            
+            // Si el producto no existe en el carrito, agrégalo
+            setCartList([...cartList, newProduct]);
         }
     }
-
+     
     // Eliminar por producto
     const eliminarProducto = (pid) => setCartList(cartList.filter(prod => prod.id !== pid))
     // mostrar la cantidad de productos total que tienen 

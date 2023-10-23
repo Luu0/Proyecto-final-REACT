@@ -8,7 +8,6 @@ const ItemDetail = ({product})=>{
   const {agregarCarrito} = useCartContext()
 
   const onAdd = (count) => {
-    console.log('productos seleccionados :', count);
     agregarCarrito({...product,count })
     setIsInCount(false)
   }
@@ -28,14 +27,13 @@ const ItemDetail = ({product})=>{
       </div>
 
       {isInCount ?
-      
-        <Link to = {"/cart"}>    
-          <button className="btn btn-outline-warning" >Ir al Carrito</button>
+        <Link to = {"/"}>    
+          <button className="btn btn-outline-success" >Seguir comprando</button>
         </Link>
       :
         <>
-          <Link to = {"/"}>    
-            <button className="btn btn-outline-success" >Seguir comprando</button>
+          <Link to = {"/cart"}>    
+            <button className="btn btn-outline-warning" >Ir al Carrito</button>
           </Link>
         </>
       }

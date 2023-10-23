@@ -34,14 +34,13 @@ const CartContainer = () => {
     const queryDB = getFirestore()
     const ordersCollection = collection(queryDB, "orders")
     addDoc(ordersCollection,order)
-    .then(resp=>console.log(resp))
+    .then(resp=>alert("Su orden es: "+ resp.id))
     .catch(err=>console.log(err))
   }
   const handleOnChange=(evt)=>{
     setDataForm({
       ...dataForm,
       [evt.target.name] : evt.target.value
-
     })
   }
 
